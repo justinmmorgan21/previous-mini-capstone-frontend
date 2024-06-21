@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 export function CartedProductsIndex() {
   const [cartedProducts, setCartedProducts] = useState([])
@@ -11,14 +11,18 @@ export function CartedProductsIndex() {
       setCartedProducts(response.data)
     })
   }
+
+  const buy = () => {
+    console.log('buy')
+    axios.post('http://localhost:3000/orders.json').then(response => {
+      console.log(response.data);
+    })
+  }
+
+  useEffect(getData, [])
   
   return (
     <div>
-      {/* what should the user see aboaut their shopping cart> */}
-      {/* each product */}
-      {/* each product's image */}
-      {/* each product's price */}
-      {/* each product's quantity */}
       <p>CPI</p>
       {cartedProducts.map(cp => (
         <div>
@@ -30,7 +34,7 @@ export function CartedProductsIndex() {
           <hr />
         </div>
       ))}
-      <button onClick={getData}>get cps</button>
+      <button onClick={buy}>Buy!</button>
     </div>
   )
 }
