@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { ProductsIndex } from './ProductsIndex'
+import { OrdersIndex } from './OrdersIndex'
 import { ProductsShow } from './ProductsShow'
 import { ProductsNew } from './ProductsNew'
 import { CartedProductsIndex } from './CartedProductsIndex'
@@ -57,6 +58,7 @@ export function Content() {
         <Route path="/products/new" element={<ProductsNew onCreateProduct={handleCreateProduct}/>} />
         <Route path="/" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} />
         <Route path="/cart" element={<CartedProductsIndex />} />
+        <Route path="/orders" element={<OrdersIndex />} />
 
         {/* <Route path="/products" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} /> */}
 
@@ -79,3 +81,15 @@ export function Content() {
 // show that data to the user
 // give links/buttons/etc for user to navigate the app
 // mimic httpie web requests to rails for various CRUD actions
+
+
+
+
+// orders show
+// orders index
+// show images of products
+// dynamically show total
+
+
+
+
