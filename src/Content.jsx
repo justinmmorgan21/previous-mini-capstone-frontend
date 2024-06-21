@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ProductsIndex } from './ProductsIndex'
 import { OrdersIndex } from './OrdersIndex'
+import { OrdersShow } from './OrdersShow'
 import { ProductsShow } from './ProductsShow'
 import { ProductsNew } from './ProductsNew'
 import { CartedProductsIndex } from './CartedProductsIndex'
@@ -59,6 +60,7 @@ export function Content() {
         <Route path="/" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} />
         <Route path="/cart" element={<CartedProductsIndex />} />
         <Route path="/orders" element={<OrdersIndex />} />
+        <Route path="/orders/:id" element={<OrdersShow />} />
 
         {/* <Route path="/products" element={<ProductsIndex products={products} onShowProduct={handleShowProduct} />} /> */}
 
@@ -86,7 +88,7 @@ export function Content() {
 
 
 // orders show
-// orders index
+  // orders index
 // show images of products
 // dynamically show total
 

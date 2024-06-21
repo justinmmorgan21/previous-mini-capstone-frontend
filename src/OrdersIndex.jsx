@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export function OrdersIndex() {
@@ -11,6 +11,8 @@ export function OrdersIndex() {
       setOrders(response.data)
     })
   }
+
+  useEffect(getOrders, [])
   
   return (
     <div>
@@ -25,14 +27,8 @@ export function OrdersIndex() {
         <p>subtotal: {order.subtotal}</p>
         <p>tax: {order.tax}</p>
         <p>total: {order.total}</p>
-        {order.carted_products.map(cartedProduct => (
-          <div>
-            <p>product name: {cartedProduct.product.name}</p>
-            <p>quantity: {cartedProduct.quantity}</p>
-            <p>product price: {cartedProduct.product.price}</p>
-            <hr />
-          </div>
-        ))}
+        <p>number of items: {order.carted_products.length}</p>
+        <a href={`/orders/${order.id}`}>More Info</a>
 
         <hr />
         <hr />
