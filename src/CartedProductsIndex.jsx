@@ -16,6 +16,7 @@ export function CartedProductsIndex() {
     console.log('buy')
     axios.post('http://localhost:3000/orders.json').then(response => {
       console.log(response.data);
+      window.location.href = '/'
     })
   }
 
@@ -38,3 +39,11 @@ export function CartedProductsIndex() {
     </div>
   )
 }
+
+
+
+
+
+// show images for a product
+// orders show/index
+// navigation
