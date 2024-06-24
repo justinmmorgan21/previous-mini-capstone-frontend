@@ -52,7 +52,7 @@ export function Content() {
   useEffect(handleIndexProducts, [])
   
   return (
-    <div>     
+    <div className="container">     
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
