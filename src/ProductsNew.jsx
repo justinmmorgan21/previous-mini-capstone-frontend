@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from 'react'
 
 export function ProductsNew(props) {  
+  const [images, setImages] = useState([''])
   const [suppliers, setSuppliers] = useState([])
   
   const createProduct = (event) => {    
@@ -20,6 +21,11 @@ export function ProductsNew(props) {
     })
   }
 
+  const addImage = () => {
+    console.log('adding image')
+    setImages([...images, ''])
+  }
+
   useEffect(getSuppliers, [])
 
 
@@ -36,11 +42,14 @@ export function ProductsNew(props) {
             <option value={supplier.id}>{supplier.name}</option>
           ))}                   
         </select> 
-        <p>Image<input name="image" type="text" /></p>        
+        {images.map(image => (
+          <p>Image<input name="images[]" type="text" /></p>          
+        ))}
 
         <br />
         <button>New product</button>
       </form>
+      <button onClick={addImage}>Add Additional image +</button>
     </div>
   )
 }
