@@ -20,7 +20,7 @@ export function Content() {
 
   const handleIndexProducts = () => {
     console.log('get data from rails')
-    axios.get("/products.json").then(response => {
+    axios.get("http://localhost:3000/products.json").then(response => {
       // console.log(response.data)
       setProducts(response.data)
     })
