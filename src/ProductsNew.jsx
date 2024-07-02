@@ -35,7 +35,9 @@ export function ProductsNew(props) {
           {suppliers.map(supplier => (
             <option value={supplier.id}>{supplier.name}</option>
           ))}                   
-        </select>       
+        </select> 
+        <p>Image<input name="image" type="text" /></p>        
+
         <br />
         <button>New product</button>
       </form>
